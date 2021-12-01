@@ -1,0 +1,16 @@
+{
+    "omnisharp.enableRoslynAnalyzers": true,
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-dotnettools.csharp"
+    },
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ff00ff",
+        "minimap.background": "#00000080"
+    },
+    "editor.rulers": [150],
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 150,
+    "cSpell.words": [
+        "Xunit"
+    ]
+}

@@ -1,0 +1,1 @@
+dotnet run --project AdventOfCode2021/AdventOfCode2021.csproj
