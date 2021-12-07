@@ -9,7 +9,7 @@ namespace AdventOfCode2021 {
             Console.WriteLine(string.Join(", ", input.Select(x => x.ToString())));
         }
 
-        public static void Log(IEnumerable<object> input) {
+        public static void Log<T>(IEnumerable<T> input) {
             Console.WriteLine(string.Join(", ", input.Select(x => x.ToString())));
         }
     }
