@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -36,6 +37,53 @@ namespace AdventOfCode2021 {
             }
 
             return matrix;
+        }
+
+        public static int[,] LineToIntMatrix(string input, string itemSeparator, string lineSeparator) {
+            var splitted = input.Split(lineSeparator);
+            var matrix = new int[splitted.Length, splitted.Length];
+            for (var x = 0; x < splitted.Length; x++) {
+                var splitted2 = splitted[x].Split(itemSeparator);
+                for (var y = 0; y < splitted2.Length; y++)
+                    matrix[x, y] = int.Parse(splitted2[y]);
+            }
+
+            return matrix;
+        }
+
+        public static List<T> Find<T>(T[,] matrix, Func<T, bool> filterFunction) {
+            var result = new List<T>();
+            for (var x = 0; x < matrix.GetLength(0); x++) {
+                for (var y = 0; y < matrix.GetLength(1); y++) {
+                    if (filterFunction(matrix[x, y]))
+                        result.Add(matrix[x, y]);
+                }
+            }
+
+            return result;
+        }
+
+        public static T[,] FindAndReplace<T>(T[,] matrix, T searchTerm, T replacement) {
+            for (var x = 0; x < matrix.GetLength(0); x++) {
+                for (var y = 0; y < matrix.GetLength(1); y++) {
+                    if (EqualityComparer<T>.Default.Equals(matrix[x, y], searchTerm))
+                        matrix[x, y] = replacement;
+                }
+            }
+
+            return matrix;
+        }
+
+        public static T[] GetColumn<T>(T[,] matrix, int columnNumber) {
+            return Enumerable.Range(0, matrix.GetLength(0))
+                .Select(x => matrix[x, columnNumber])
+                .ToArray();
+        }
+
+        public static T[] GetRow<T>(T[,] matrix, int rowNumber) {
+            return Enumerable.Range(0, matrix.GetLength(1))
+                .Select(x => matrix[rowNumber, x])
+                .ToArray();
         }
 
         public static readonly (int x, int y)[] NeighborDirections4 = { (0, 1), (1, 0), (0, -1), (-1, 0) };
