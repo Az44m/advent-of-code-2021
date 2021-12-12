@@ -37,7 +37,7 @@ namespace AdventOfCode2021.Day09 {
                     if (matrix[p.x, p.y] is < 9 and not -1) {
                         matrix[p.x, p.y] = -1;
                         basinSize++;
-                        foreach (var position in MatrixUtils.NeighborDirections4.Select(p1 => (p1.x + p.x, p1.y + p.y))) {
+                        foreach (var position in MatrixUtils.GetDirect4NeighborsWithCoordinates(matrix, p.x, p.y).Select(x => x.Key)) {
                             positions.Push(position);
                         }
                     }
