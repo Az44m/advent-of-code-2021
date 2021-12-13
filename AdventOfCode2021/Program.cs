@@ -1,7 +1,7 @@
 ﻿namespace AdventOfCode2021 {
     public class Program {
         private static void Main() {
-            AoCRunner.Run(2021, 11,
+            AoCRunner.Run(2021, 13,
              new() {
                  new Day01.Puzzle(),
                  new Day02.Puzzle(),
@@ -14,6 +14,8 @@
                  new Day09.Puzzle(),
                  new Day10.Puzzle(),
                  new Day11.Puzzle(),
+                 null,
+                 new Day13.Puzzle(),
              });
         }
     }
